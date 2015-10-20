@@ -4,5 +4,6 @@
 /.gitignore
 /.npmignore
 /.travis.yml
+/karma.conf.js
 /tests.js
 /webpack.*

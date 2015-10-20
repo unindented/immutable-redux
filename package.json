@@ -12,6 +12,8 @@
   },
 
   "scripts": {
+    "clean":      "rimraf coverage dist lib",
+
     "lint":       "eslint .",
     "test":       "karma start --single-run",
     "test:watch": "karma start --no-single-run",
@@ -21,7 +23,7 @@
     "build:prod": "webpack --config webpack.config.production.js",
     "build":      "npm run build:lib && npm run build:dev && npm run build:prod",
 
-    "prepublish": "npm run build"
+    "prepublish": "npm run clean && npm run build"
   },
 
   "peerDependencies": {
@@ -43,6 +45,7 @@
     "node-libs-browser":            "^0.5.3",
     "phantomjs":                    "^1.9.18",
     "redux":                        "^3.0.2",
+    "rimraf":                       "^2.3.4",
     "webpack":                      "^1.12.2",
 
     "babel-loader":                 "^5.3.2",
