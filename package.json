@@ -1,7 +1,7 @@
 {
   "name":        "immutable-redux",
   "description": "Provides utilities for dealing with Immutable.js data structures in Redux.",
-  "version":     "0.0.3",
+  "version":     "0.0.4",
   "license":     "MIT",
 
   "main":        "lib/index.js",
