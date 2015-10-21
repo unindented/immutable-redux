@@ -1,5 +1,3 @@
-'use strict'
-
 import immutableMatchers from 'jasmine-immutable-matchers'
 
 beforeEach(function () {
