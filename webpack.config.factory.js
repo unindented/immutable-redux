@@ -53,7 +53,7 @@ module.exports = function (options) {
       loaders: [
         {
           test: /\.jsx?$/,
-          exclude: /(dist|node_modules)[\\\/]/,
+          exclude: /(lib|node_modules)[\\\/]/,
           loader: 'babel'
         }
       ],
@@ -61,7 +61,7 @@ module.exports = function (options) {
       postLoaders: (options.coverage ? [
         {
           test: /\.jsx?$/,
-          exclude: /(dist|node_modules|test)[\\\/]/,
+          exclude: /(lib|node_modules|test)[\\\/]/,
           loader: 'istanbul-instrumenter'
         }
       ] : [])
