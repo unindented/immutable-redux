@@ -27,7 +27,7 @@ You'll find the development (`immutable-redux.js`) and production (`immutable-re
 ```js
 import {List} from 'immutable'
 import {createStore} from 'redux'
-import {combineImmutableReducers} from './lib'
+import {combineImmutableReducers} from 'immutable-redux'
 
 const reducer = combineImmutableReducers({
   counter: (state = 0, action) =>
