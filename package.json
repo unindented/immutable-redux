@@ -50,7 +50,7 @@
     "karma-safari-launcher": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
-    "node-libs-browser": "^0.5.3",
+    "node-libs-browser": "^1.0.0",
     "phantomjs": "^1.9.18",
     "redux": "^3.0.5",
     "rimraf": "^2.5.0",
