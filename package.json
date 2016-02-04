@@ -52,7 +52,7 @@
     "karma-webpack": "^1.7.0",
     "node-libs-browser": "^1.0.0",
     "phantomjs": "^1.9.18",
-    "redux": "^3.0.5",
+    "redux": "^3.2.0",
     "rimraf": "^2.5.0",
     "webpack": "^1.12.9"
   }
