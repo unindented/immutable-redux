@@ -3,9 +3,17 @@ node_js:
   - '4.2'
   - '0.12'
 
+deploy:
+  provider: npm
+  email: unindented@gmail.com
+  api_key:
+    secure: PipCXyyGP/V4uBVUuzovDTGmz4n2YttH077H9Xf4BrX+SQjSGhjBQnNHrTDlBb7C98tMkesy5c3bkC9bSku6N54s9kVMhzEr4VficOuwqfYt4q3vJ1VQBfgfUogvm0ndEmuGcF+qWeKRMebFqthvo0VOKNjPG8wgsDog/6ruUuhapdKSfyUMvECMEUzXj0Z0jCIfrOTIqIOU0p2vhonDtplVpNPOOIJxSl4uLn4v74q+KWJL59aqTXVJ+lCyDY0hyOGwEQTlOv1TejmMjOGNuf+J92TWtZfjIM/+I+iT3yKOVZCmDpoASbyXC8onDeTtmJFevrgq4AP/1ibiHIzjoJnnbRF4FghOFKcpHaQx6MIxfoq3cdu/hHyP9PHhWHzxdhugFbkE2IJ/aLOZy+QVN1wxjard0UTvpvVqka+ETH9GRmuIK/5kFLAjPTUCumarEnfgBUixnTV3raLnARA74aADmTFzsG/mlMSL3BDmmLgt6eOKKRursCxMHZ4gHFROuxRay6jdm5jLo4cUZUfTMoAol1sgtRhex7Y7L3fLC2PsNAPxmXfZfL6ug/HfmOp7UAlY2euU1X/BZ2OKyW282N7pUOGvGQSa7dMDF4FzwXauIm+5NJPd5gjPGfcvLAtR/d0tduFeFh9f4gaMeZ/UX7mo95Rf0Ct/L1QozjEQFmk=
+  on:
+    tags: true
+
 script:
-  - 'npm run lint'
-  - 'npm test'
+  - npm run lint
+  - npm test
 
 after_script:
-  - 'find ./coverage -name lcov.info -exec cat {} \; | ./node_modules/.bin/coveralls'
+  - find ./coverage -name lcov.info -exec cat {} \; | ./node_modules/.bin/coveralls
