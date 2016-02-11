@@ -32,19 +32,12 @@ module.exports = function (options) {
 
     resolve: {
       modulesDirectories: [
-        'actions',
-        'reducers',
-        'constants',
-        'middlewares',
-        'utils',
-        'web_modules',
         'node_modules'
       ]
     },
 
     resolveLoader: {
       modulesDirectories: [
-        'web_modules',
         'node_modules'
       ]
     },
@@ -54,17 +47,9 @@ module.exports = function (options) {
         {
           test: /\.jsx?$/,
           exclude: /(lib|node_modules)[\\\/]/,
-          loader: 'babel'
+          loader: options.coverage ? 'isparta' : 'babel'
         }
-      ],
-
-      postLoaders: (options.coverage ? [
-        {
-          test: /\.jsx?$/,
-          exclude: /(lib|node_modules|test)[\\\/]/,
-          loader: 'istanbul-instrumenter'
-        }
-      ] : [])
+      ]
     },
 
     plugins: [
