@@ -13,7 +13,7 @@ function getUndefinedStateErrorMessage (key, action) {
 
   return (
     `Reducer "${key}" returned undefined handling ${actionName}. ` +
-    `To ignore an action, you must explicitly return the previous state.`
+    'To ignore an action, you must explicitly return the previous state.'
   )
 }
 
@@ -34,7 +34,7 @@ function getUnexpectedStateKeyWarningMessage (inputState, outputState, action) {
     return (
       `The ${argumentName} has unexpected type of "` +
       ({}).toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] +
-      `". Expected argument to be an immutable map with the following ` +
+      '". Expected argument to be an immutable map with the following ' +
       `keys: "${reducerKeys.join('", "')}"`
     )
   }
@@ -47,7 +47,7 @@ function getUnexpectedStateKeyWarningMessage (inputState, outputState, action) {
     return (
       `Unexpected ${unexpectedKeys.length > 1 ? 'keys' : 'key'} ` +
       `"${unexpectedKeys.join('", "')}" found in ${argumentName}. ` +
-      `Expected to find one of the known reducer keys instead: ` +
+      'Expected to find one of the known reducer keys instead: ' +
       `"${reducerKeys.join('", "')}". Unexpected keys will be ignored.`
     )
   }
@@ -61,9 +61,9 @@ function assertReducerSanity (reducers) {
     if (typeof initialState === 'undefined') {
       throw new Error(
         `Reducer "${key}" returned undefined during initialization. ` +
-        `If the state passed to the reducer is undefined, you must ` +
-        `explicitly return the initial state. The initial state may ` +
-        `not be undefined.`
+        'If the state passed to the reducer is undefined, you must ' +
+        'explicitly return the initial state. The initial state may ' +
+        'not be undefined.'
       )
     }
 
@@ -72,10 +72,10 @@ function assertReducerSanity (reducers) {
       throw new Error(
         `Reducer "${key}" returned undefined when probed with a random type. ` +
         `Don't try to handle ${ActionTypes.INIT} or other actions in "redux/*" ` +
-        `namespace. They are considered private. Instead, you must return the ` +
-        `current state for any unknown actions, unless it is undefined, ` +
-        `in which case you must return the initial state, regardless of the ` +
-        `action type. The initial state may not be undefined.`
+        'namespace. They are considered private. Instead, you must return the ' +
+        'current state for any unknown actions, unless it is undefined, ' +
+        'in which case you must return the initial state, regardless of the ' +
+        'action type. The initial state may not be undefined.'
       )
     }
   })
