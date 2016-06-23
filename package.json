@@ -40,7 +40,7 @@
     "isparta-loader": "^2.0.0",
     "jasmine-core": "^2.4.1",
     "jasmine-immutable-matchers": "^1.0.1",
-    "karma": "^0.13.19",
+    "karma": "^1.0.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.0.0",
     "karma-firefox-launcher": "^1.0.0",
