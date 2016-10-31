@@ -46,7 +46,7 @@ module.exports = function (options) {
       loaders: [
         {
           test: /\.jsx?$/,
-          exclude: /(lib|node_modules)[\\\/]/,
+          exclude: /(lib|node_modules)[\\/]/,
           loader: options.coverage ? 'isparta' : 'babel'
         }
       ]
