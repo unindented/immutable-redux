@@ -1,0 +1,24 @@
+{
+  "moduleFileExtensions": ["ts", "js"],
+  "transform": {
+    "^.+\\.ts$": "<rootDir>/config/jest/tsPreprocessor.js"
+  },
+  "setupTestFrameworkScriptFile": "<rootDir>/config/jest/customMatchers.js",
+  "testRegex": "<rootDir>/tests/.*$",
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "src/**/*.{ts,js}"
+  ],
+  "coverageReporters": [
+    "text",
+    "text-summary"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 100,
+      "branches": 95,
+      "functions": 100,
+      "lines": 100
+    }
+  }
+}

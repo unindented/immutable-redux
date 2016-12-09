@@ -1,13 +1,17 @@
+import {Map} from 'immutable'
+import {Action, Reducer} from 'redux'
 import isImmutable from '../utils/isImmutable'
 import mapValues from '../utils/mapValues'
 import pick from '../utils/pick'
+
+export type AnyMap = Map<string, any>
 
 export const ActionTypes = {
   INIT: '@@redux/INIT',
   UNKNOWN: '@@redux/PROBE_UNKNOWN_ACTION'
 }
 
-function getUndefinedStateErrorMessage (key, action) {
+function getUndefinedStateErrorMessage (key: string, action: Action) {
   const actionType = action && action.type
   const actionName = actionType && `"${actionType.toString()}"` || 'an action'
 
@@ -17,7 +21,7 @@ function getUndefinedStateErrorMessage (key, action) {
   )
 }
 
-function getUnexpectedStateKeyWarningMessage (inputState, outputState, action) {
+function getUnexpectedStateKeyWarningMessage (inputState: AnyMap, outputState: AnyMap, action: Action) {
   const reducerKeys = outputState.keySeq().toArray()
   const argumentName = action && action.type === ActionTypes.INIT
     ? 'initialState argument passed to createStore'
@@ -40,7 +44,7 @@ function getUnexpectedStateKeyWarningMessage (inputState, outputState, action) {
   }
 
   const unexpectedKeys = inputState.keySeq().toArray().filter(
-    (key) => reducerKeys.indexOf(key) < 0
+    (key: string) => reducerKeys.indexOf(key) < 0
   )
 
   if (unexpectedKeys.length > 0) {
@@ -53,7 +57,7 @@ function getUnexpectedStateKeyWarningMessage (inputState, outputState, action) {
   }
 }
 
-function assertReducerSanity (reducers) {
+function assertReducerSanity (reducers: {[s: string]: Reducer<any>}) {
   Object.keys(reducers).forEach((key) => {
     const reducer = reducers[key]
     const initialState = reducer(undefined, {type: ActionTypes.INIT})
@@ -97,10 +101,11 @@ function assertReducerSanity (reducers) {
  * @returns {Function} A reducer function that invokes every reducer inside the
  * passed object, and builds a state object with the same shape.
  */
-
-export default function combineImmutableReducers (reducers) {
+export default function combineImmutableReducers (
+  reducers: {[key: string]: Reducer<any>}
+): Reducer<AnyMap> {
   const finalReducers = pick(reducers, (val) => typeof val === 'function')
-  let sanityError
+  let sanityError: Error
 
   try {
     assertReducerSanity(finalReducers)
@@ -110,7 +115,7 @@ export default function combineImmutableReducers (reducers) {
 
   const defaultState = mapValues(finalReducers, () => undefined)
 
-  return function combination (state = defaultState, action) {
+  return function combination (state = defaultState, action: Action) {
     if (sanityError) {
       throw sanityError
     }
