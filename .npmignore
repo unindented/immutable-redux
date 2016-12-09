@@ -1,6 +1,4 @@
+/config/
 /coverage/
-/test/
+/tests/
 /.*
-/karma.*
-/tests.*
-/webpack.*

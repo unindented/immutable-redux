@@ -10,9 +10,5 @@ deploy:
   on:
     tags: true
 
-script:
-  - npm run lint
-  - npm test
-
 after_script:
   - find ./coverage -name lcov.info -exec cat {} \; | ./node_modules/.bin/coveralls

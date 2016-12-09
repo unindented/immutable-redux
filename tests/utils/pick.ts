@@ -1,7 +1,7 @@
 import pick from '../../src/utils/pick'
 
 describe('pick', () => {
-  it('should return object with picked values', () => {
+  it('returns object with picked values', () => {
     const test = {
       name: 'lily',
       age: 20
