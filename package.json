@@ -48,6 +48,6 @@
     "tslint": "^4.0.2",
     "tslint-config-standard": "^4.0.0",
     "typescript": "^2.1.4",
-    "webpack": "^1.14.0"
+    "webpack": "^2.5.0"
   }
 }
